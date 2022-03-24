@@ -58,13 +58,15 @@ class ProjectCard extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            Hero(
-              tag: project.name,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15.0),
-                child: Image.network(
-                  project.imageUrl,
-                  fit: BoxFit.cover,
+            Expanded(
+              child: Hero(
+                tag: project.name,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15.0),
+                  child: Image.network(
+                    project.imageUrl,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
