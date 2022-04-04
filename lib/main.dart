@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/pages/home/home_page.dart';
 import 'package:my_portfolio/pages/project/project_detail.dart';
+import 'package:my_portfolio/responsive.dart';
 
 void main() {
   return runApp(
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,

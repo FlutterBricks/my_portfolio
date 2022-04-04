@@ -5,7 +5,6 @@ import '../../models/project.dart';
 
 class ProjectCard extends StatelessWidget {
   final Project project;
-
   const ProjectCard({required this.project, Key? key}) : super(key: key);
 
   @override
@@ -18,7 +17,7 @@ class ProjectCard extends StatelessWidget {
                     project: project,
                   ))),
       child: Container(
-        width: MediaQuery.of(context).size.width / 1.3,
+        width: 300,
         margin: const EdgeInsets.only(top: 15.0, right: 25.0, bottom: 25.0),
         padding: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
@@ -87,3 +86,12 @@ class ProjectCard extends StatelessWidget {
     );
   }
 }
+
+// ```dart
+// Array<string> weatherEvents = ["rain", "sleet"]
+
+// if(weatherEvents) { // will create an ERROR
+//     print("I wont ever run!"):
+// }
+
+// ```

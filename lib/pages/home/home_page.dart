@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/example/projects.dart';
+import 'package:my_portfolio/responsive.dart';
 import '../../widgets/Cards/project_card.dart';
 import '../../widgets/Header/header.dart';
 
@@ -39,16 +40,10 @@ class HomePage extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  SizedBox(
-                    height: 350,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: projects.length,
-                      itemBuilder: (context, index) {
-                        return ProjectCard(project: projects[index]);
-                      },
-                    ),
-                  )
+                  Responsive(
+                      mobile: mobileTabletBuilder(350),
+                      tablet: mobileTabletBuilder(450),
+                      desktop: desktopBuilder())
                 ],
               ),
             ),
@@ -56,5 +51,32 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget mobileTabletBuilder(double height) {
+    return SizedBox(
+      height: height,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: projects.length,
+        itemBuilder: (context, index) {
+          return ProjectCard(project: projects[index]);
+        },
+      ),
+    );
+  }
+
+  Widget desktopBuilder() {
+    return GridView.builder(
+        shrinkWrap: true,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 5.0,
+          mainAxisSpacing: 5.0,
+        ),
+        itemCount: projects.length,
+        itemBuilder: (context, index) {
+          return ProjectCard(project: projects[index]);
+        });
   }
 }
